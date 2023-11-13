@@ -5,12 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>LIFF TEST</title>
         <script src = "https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-        
     </head>
     <body>
         <div style="color:#ff0000">LIFF TEST</div>
-        <div id="UsrID">eee</div>
-        <div id="UsrName">fff</div>
+        <div id="UsrID">[UserID]</div>
+        <div id="UsrName">[UserName]</div>
         <div id="state">333</div>
     </body>
     <script>
@@ -19,7 +18,7 @@
             liff.init({
               liffId: liffID
             }).then(function() {
-                document.getElementById('state').innerHTML = '進入then';
+                document.getElementById('state').innerHTML = 'enter then';
                 console.log('LIFF init');
                 console.log(liffID);
                 
