@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LIFF TEST</title>
+        <script src = "https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+        
+    </head>
+    <body>
+        <div style="color:#ff0000">LIFF TEST</div>
+        <div id="UsrID">eee</div>
+        <div id="UsrName">fff</div>
+        <div id="state">333</div>
+    </body>
+    <script>
+            var liffID = '2001636168-V2P6a0kL';
+            document.getElementById('state').innerHTML = 'before init';
+            liff.init({
+              liffId: liffID
+            }).then(function() {
+                document.getElementById('state').innerHTML = '進入then';
+                console.log('LIFF init');
+                console.log(liffID);
+                
+                // 這邊開始寫使用其他功能
+                // 引用 LIFF SDK 的頁面，頁面中的 lang 值
+                // liff.getLanguage();
+                // // LIFF SDK 的版本
+                // liff.getVersion();
+                // // 回傳是否由 LINE App 存取
+                // liff.isInClient();
+                // // 使用者是否登入 LINE 帳號
+                // liff.isLoggedIn();
+                // // 回傳使用者作業系統：ios、android、web
+                // liff.getOS();
+                // // 使用者的 LINE 版本
+                // liff.getLineVersion();
+                
+                function displayLiffData() {
+                    document.getElementById('state').innerHTML = '還沒getProfile';
+                    // liff.getProfile().then(function(profile) {
+                    //     document.getElementById('state').innerHTML = 'getProfile的then';
+                    //     var UsrID = profile.userId;
+                    //     var UsrName = profile.displayName;
+                    //     document.getElementById('state').innerHTML = 'getProfile的then已取得資訊';
+                    //     //document.getElementById('UsrID').innerHTML = UsrID;
+                    //     //document.getElementById('UsrName').innerHTML = UsrName;
+                    // }).catch(function(error) {
+                    //     window.alert('Error getting profile: ' + error);
+                    //     //liff.closeWindow();
+                    // });
+                }
+                displayLiffData()
+              
+            }).catch(function(error) {
+                console.log(error);
+            });
+        </script>
+</html>
