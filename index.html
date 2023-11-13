@@ -32,7 +32,7 @@
                 // liff.getLineVersion();
                 
                 user_profile = liff.getProfile()
-                document.getElementById("profile").innerHTML = user_profile
+                document.getElementById("profile").innerHTML = user_profile["displayName"]
               
             }).catch(function(error) {
                 console.log(error);
