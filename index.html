@@ -9,7 +9,8 @@
     </head>
     <body>
         <div style="color:#ff0000">LIFF TEST</div>
-        <div id="profile">bbb</div>
+        <div id="UsrID">aaa</div>
+        <div id="UsrName">bbb</div>
     </body>
     <script>
             var liffID = '2001636168-V2P6a0kL';
@@ -31,8 +32,29 @@
                 // // 使用者的 LINE 版本
                 // liff.getLineVersion();
                 
-                user_profile = liff.getProfile()
-                document.getElementById("profile").innerHTML = user_profile["displayName"]
+                function displayLiffData() {
+                    liff.getProfile().then(function(profile) {
+                
+                        // ? QueryString
+                        let urlParams = new URLSearchParams(window.location.search);
+                        let UsrID = profile.userId;
+                        let UsrName = profile.displayName;
+                        // let UsrPic = profile.pictureUrl;
+                        // let rfvp = urlParams.get('rfvp');
+                        // let rfmb = urlParams.get('rfmb');
+                
+                        document.getElementById('UsrID').textContent = UsrID;
+                        document.getElementById('UsrName').textContent = UsrName;
+                        // document.getElementById('UsrPic').textContent = UsrPic;
+                        // document.getElementById('rfvp').textContent = rfvp; 
+                        // document.getElementById('rfmb').textContent = rfmb; 
+                        
+                        // liff.closeWindow();
+                    }).catch(function(error) {
+                        window.alert('Error getting profile: ' + error);
+                        liff.closeWindow();
+                    });
+                }
               
             }).catch(function(error) {
                 console.log(error);
