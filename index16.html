@@ -26,7 +26,7 @@
                 if (!islogin){
                     liff.login({
                       // 使用者登入後要去到哪個頁面
-                      redirectUri: 'https://pikazerochu.github.io/lifftest/index15.html'
+                      redirectUri: 'https://pikazerochu.github.io/lifftest/index16.html'
                     });
                 } else {
                     liff.getProfile().then(function(profile) {
@@ -47,10 +47,10 @@
                         // 使用者的 LINE 版本
                         liff.getLineVersion();
                         document.getElementById('state').innerHTML = 'get profile';
-                        document.getElementById('UsrID').innerHTML = UsrID;
-                        document.getElementById('UsrName').innerHTML = UsrName;
-                        document.getElementById('UsrPic').innerHTML = '<img src="'+UsrPic+'">';
-                        document.getElementById('state').innerHTML = '語言：'+lang+'</br>LIFF版本：'+vers+'</br>由LINE開啟：'+isinclent+'</br>是否登入：'+islogin+'</br>作業系統：'+usros
+                        document.getElementById('UsrID').innerHTML = 'ID: '+UsrID;
+                        document.getElementById('UsrName').innerHTML = 'Name: '+UsrName;
+                        document.getElementById('UsrPic').innerHTML = '<img src="'+UsrPic+'" style="width:100px;height:100px;">';
+                        document.getElementById('state').innerHTML = '語言：'+lang+'</br>LIFF版本：'+vers+'</br>是否由LINE開啟：'+isinclent+'</br>是否登入：'+islogin+'</br>作業系統：'+usros
                     }).catch(function(error) {
                         window.alert('Error getting profile: ' + error);
                     });
