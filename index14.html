@@ -10,6 +10,7 @@
         <div style="color:#ff0000">LIFF TEST</div>
         <div id="UsrID">[UserID]</div>
         <div id="UsrName">[UserName]</div>
+        <div id="UsrPic">[UserPic]</div>
         <div id="state">[state]</div>
     </body>
     <script>
@@ -25,12 +26,13 @@
                 if (!islogin){
                     liff.login({
                       // 使用者登入後要去到哪個頁面
-                      redirectUri: 'https://pikazerochu.github.io/lifftest/index13.html'
+                      redirectUri: 'https://pikazerochu.github.io/lifftest/index14.html'
                     });
                 } else {
                     liff.getProfile().then(function(profile) {
                         var UsrID = profile.userId;
                         var UsrName = profile.displayName;
+                        var UsrPic = profile.pictureUrl;
                         // 引用 LIFF SDK 的頁面，頁面中的 lang 值
                         var lang = liff.getLanguage();
                         // LIFF SDK 的版本
@@ -47,7 +49,8 @@
                         document.getElementById('state').innerHTML = 'get profile';
                         document.getElementById('UsrID').innerHTML = UsrID;
                         document.getElementById('UsrName').innerHTML = UsrName;
-                        document.getElementById('state').innerHTML = lang+' '+vers+' '+isinclent+' '+islogin+' '+usros
+                        document.getElementById('UsrPic').innerHTML = '<img src="'+UsrPic+'">';
+                        document.getElementById('state').innerHTML = '語言：'lang+'</br>LIFF版本：'+vers+'</br>由LINE開啟：'+isinclent+'</br>是否登入：'+islogin+'</br>作業系統：'+usros
                     }).catch(function(error) {
                         window.alert('Error getting profile: ' + error);
                     });
