@@ -24,9 +24,22 @@
                 liff.getProfile().then(function(profile) {
                     var UsrID = profile.userId;
                     var UsrName = profile.displayName;
+                    // 引用 LIFF SDK 的頁面，頁面中的 lang 值
+                    var lang = liff.getLanguage();
+                    // LIFF SDK 的版本
+                    var vers = liff.getVersion();
+                    // 回傳是否由 LINE App 存取
+                    var isinclent = liff.isInClient();
+                    // 使用者是否登入 LINE 帳號
+                    var islogin = liff.isLoggedIn();
+                    // 回傳使用者作業系統：ios、android、web
+                    var usros = liff.getOS();
+                    // 使用者的 LINE 版本
+                    liff.getLineVersion();
                     document.getElementById('state').innerHTML = 'get profile';
                     document.getElementById('UsrID').innerHTML = UsrID;
                     document.getElementById('UsrName').innerHTML = UsrName;
+                    document.getElementById('state').innerHTML = lang+' '+vers+' '+isinclent+' '+islogin+' '+usros
                 }).catch(function(error) {
                     window.alert('Error getting profile: ' + error);
                 });
