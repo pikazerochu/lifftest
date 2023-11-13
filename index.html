@@ -9,8 +9,8 @@
     </head>
     <body>
         <div style="color:#ff0000">LIFF TEST</div>
-        <div id="UsrID">aaa</div>
-        <div id="UsrName">bbb</div>
+        <div id="UsrID">ccc</div>
+        <div id="UsrName">ddd</div>
     </body>
     <script>
             var liffID = '2001636168-V2P6a0kL';
@@ -36,15 +36,15 @@
                     liff.getProfile().then(function(profile) {
                 
                         // ? QueryString
-                        let urlParams = new URLSearchParams(window.location.search);
-                        let UsrID = profile.userId;
-                        let UsrName = profile.displayName;
+                        //let urlParams = new URLSearchParams(window.location.search);
+                        var UsrID = profile.userId;
+                        var UsrName = profile.displayName;
                         // let UsrPic = profile.pictureUrl;
                         // let rfvp = urlParams.get('rfvp');
                         // let rfmb = urlParams.get('rfmb');
                 
-                        document.getElementById('UsrID').textContent = UsrID;
-                        document.getElementById('UsrName').textContent = UsrName;
+                        document.getElementById('UsrID').innerHTML = UsrID;
+                        document.getElementById('UsrName').innerHTML = UsrName;
                         // document.getElementById('UsrPic').textContent = UsrPic;
                         // document.getElementById('rfvp').textContent = rfvp; 
                         // document.getElementById('rfmb').textContent = rfmb; 
