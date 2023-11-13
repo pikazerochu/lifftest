@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LIFF TEST</title>
+        <script src = "https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    </head>
+    <body>
+        <div style="color:#ff0000">LIFF TEST</div>
+        <div id="UsrID">[UserID]</div>
+        <div id="UsrName">[UserName]</div>
+        <div id="state">[state]</div>
+    </body>
+    <script>
+        var liffID = '2001636168-V2P6a0kL';
+        document.getElementById('state').innerHTML = 'before init';
+        liff.init({
+          liffId: liffID
+        }).then(function() {
+            document.getElementById('state').innerHTML = 'enter then';
+            function displayLiffData() {
+                document.getElementById('state').innerHTML = 'before getProfile';
+                liff.getProfile().then(function(profile) {
+                    var UsrID = profile.userId;
+                    var UsrName = profile.displayName;
+                    document.getElementById('state').innerHTML = 'get profile';
+                    document.getElementById('UsrID').innerHTML = UsrID;
+                    document.getElementById('UsrName').innerHTML = UsrName;
+                }).catch(function(error) {
+                    window.alert('Error getting profile: ' + error);
+                });
+            }
+            displayLiffData()
+          
+        }).catch(function(error) {
+            console.log(error);
+        });
+    </script>
+</html>
