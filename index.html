@@ -5,8 +5,37 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>LIFF TEST</title>
         <script src = "https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+        
     </head>
     <body>
         <div style="color:#ff0000">LIFF TEST</div>
+        <div id="profile"></div>
     </body>
+    <script>
+            var liffID = '2001636168-V2P6a0kL';
+            liff.init({
+              liffId: liffID
+            }).then(function() {
+                console.log('LIFF init');
+                // 這邊開始寫使用其他功能
+                // 引用 LIFF SDK 的頁面，頁面中的 lang 值
+                // liff.getLanguage();
+                // // LIFF SDK 的版本
+                // liff.getVersion();
+                // // 回傳是否由 LINE App 存取
+                // liff.isInClient();
+                // // 使用者是否登入 LINE 帳號
+                // liff.isLoggedIn();
+                // // 回傳使用者作業系統：ios、android、web
+                // liff.getOS();
+                // // 使用者的 LINE 版本
+                // liff.getLineVersion();
+                
+                user_profile = liff.getProfile()
+                document.getElementById("profile").innerHTML = user_profile
+              
+            }).catch(function(error) {
+                console.log(error);
+            });
+        </script>
 </html>
