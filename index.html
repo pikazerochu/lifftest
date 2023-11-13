@@ -9,8 +9,9 @@
     </head>
     <body>
         <div style="color:#ff0000">LIFF TEST</div>
-        <div id="UsrID">111</div>
-        <div id="UsrName">222</div>
+        <div id="UsrID">aaa</div>
+        <div id="UsrName">bbb</div>
+        <div id="state">333</div>
     </body>
     <script>
             var liffID = '2001636168-V2P6a0kL';
@@ -33,9 +34,12 @@
                 // liff.getLineVersion();
                 
                 function displayLiffData() {
+                    document.getElementById('state').innerHTML = '還沒getProfile';
                     liff.getProfile().then(function(profile) {
+                        document.getElementById('state').innerHTML = 'getProfile的then';
                         var UsrID = profile.userId;
                         var UsrName = profile.displayName;
+                        document.getElementById('state').innerHTML = 'getProfile的then已取得資訊';
                         //document.getElementById('UsrID').innerHTML = UsrID;
                         //document.getElementById('UsrName').innerHTML = UsrName;
                     }).catch(function(error) {
