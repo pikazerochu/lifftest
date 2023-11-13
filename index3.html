@@ -19,8 +19,10 @@
             liff.init({
               liffId: liffID
             }).then(function() {
+                document.getElementById('state').innerHTML = '進入then';
                 console.log('LIFF init');
                 console.log(liffID);
+                
                 // 這邊開始寫使用其他功能
                 // 引用 LIFF SDK 的頁面，頁面中的 lang 值
                 // liff.getLanguage();
