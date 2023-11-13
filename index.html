@@ -9,8 +9,8 @@
     </head>
     <body>
         <div style="color:#ff0000">LIFF TEST</div>
-        <div id="UsrID">aaa</div>
-        <div id="UsrName">bbb</div>
+        <div id="UsrID">ccc</div>
+        <div id="UsrName">ddd</div>
         <div id="state">333</div>
     </body>
     <script>
@@ -19,6 +19,7 @@
               liffId: liffID
             }).then(function() {
                 console.log('LIFF init');
+                console.log(liffID);
                 // 這邊開始寫使用其他功能
                 // 引用 LIFF SDK 的頁面，頁面中的 lang 值
                 // liff.getLanguage();
